@@ -37,10 +37,10 @@ module.exports = {
       }
     ]
   },
-  // devServer : {
-  //   port: process.env.WEB_PORT,
-  //   host: "0.0.0.0"
-  // },
+  devServer : {
+    port: 8001,
+    host: "0.0.0.0"
+  },
   plugins: [
     HtmlPlugin, 
     // EnvironmentVariables

@@ -7,6 +7,18 @@ services:
     volumes:
       - ./api/src:/api/src
       - ./api/test:/api/test
+    depends_on:
+      - database
     command: ["npm", "run", "dev"]
+  web:
+    build: ./web
+    ports: 
+      - "8001:8001"
+    volumes:
+      - ./web/src:/web/src
+      - ./web/test:/web/test
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - api
   database:
     image: "mongo:latest"
