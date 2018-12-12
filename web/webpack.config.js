@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const {EnvironmentPlugin} = require('webpack');
+const {EnvironmentPlugin} = require('webpack');
+require('dotenv').config()
 
 const HtmlConfig = {
   template: path.resolve('src/index.html'),
@@ -9,9 +10,12 @@ const HtmlConfig = {
 }
 const HtmlPlugin = new HtmlWebpackPlugin(HtmlConfig)
 
-// const EnvironmentVariables = new EnvironmentPlugin(['API_URI', 'NODE_ENV'])
-module.exports = {
+const EnvironmentVariablesPlugin = new EnvironmentPlugin([
+  'API_URI', 
+  'NODE_ENV'
+])
 
+module.exports = {
   entry: path.resolve('src/app.js'),
   output: {
     path: path.resolve('build'),
@@ -43,6 +47,6 @@ module.exports = {
   },
   plugins: [
     HtmlPlugin, 
-    // EnvironmentVariables
+    EnvironmentVariablesPlugin
   ]
 }

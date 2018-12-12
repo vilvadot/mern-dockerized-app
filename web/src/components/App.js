@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   getMessageFromApi(){
-    fetch('http://localhost:8000')
+    fetch(process.env.API_URI)
     .then(res => res.json())
     .then(data => {
       this.setState({

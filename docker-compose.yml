@@ -22,3 +22,5 @@ services:
       - api
   database:
     image: "mongo:latest"
+    ports: 
+      - "27018:27017"

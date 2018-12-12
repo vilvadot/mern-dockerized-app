@@ -3,10 +3,9 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const routes = require('./routes')
 
-const PORT = 8000
-const DB_NAME = 'dockerized_app'
-const DB_PORT = '27017'
-const API_SERVICE_NAME = 'database'
+require('dotenv').config()
+
+const {DATABASE_URI, PORT} = process.env
 
 const app = express()
 
@@ -17,7 +16,7 @@ app.use(function(req, res, next) {
 });
 
 // Connect DB
-mongoose.connect(`mongodb://${API_SERVICE_NAME}:${DB_PORT}/${DB_NAME}`);
+mongoose.connect(DATABASE_URI);
 mongoose.connection.on('error', (err) => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
