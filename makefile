@@ -1,10 +1,13 @@
 build:
 	docker-compose build
 
-start:
+dev:
 	docker-compose up
 
-test-watch:
+api-test-watch:
+	docker-compose exec api npm run test:watch
+
+web-test-watch:
 	docker-compose exec api npm run test:watch
 
 down:
