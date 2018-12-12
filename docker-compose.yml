@@ -1,0 +1,8 @@
+version: "3"
+services:
+  api:
+    build: ./api
+    ports: 
+      - "8000:8000"
+    volumes:
+      - ./api/src:/api/src
