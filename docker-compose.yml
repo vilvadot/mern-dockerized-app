@@ -8,3 +8,5 @@ services:
       - ./api/src:/api/src
       - ./api/test:/api/test
     command: ["npm", "run", "dev"]
+  database:
+    image: "mongo:latest"

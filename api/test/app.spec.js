@@ -11,4 +11,4 @@ describe('Sum', () => {
     expect(RESULT).to.equal(FIVE)
     done()
   })
-})
+}) 
