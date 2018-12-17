@@ -1,4 +1,4 @@
 node_modules
 .Ds_Store
 dist
-build
+web/build
